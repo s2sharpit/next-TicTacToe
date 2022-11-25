@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Square from "../components/Square";
-type Player = "X" | "O" | "BOTH" | null
+type Player = "X" | "O" | "BOTH" | null;
 
 function calculateWinner(squares: Player[]){
     const lines = [
@@ -24,7 +24,7 @@ function calculateWinner(squares: Player[]){
     }
 }
 
-export default () => {
+export default function Board() {
 
     const [squares, setSquares] = useState(Array(9).fill(null));
     const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">(
@@ -38,7 +38,7 @@ export default () => {
         setCurrentPlayer(Math.round(Math.random() * 1) === 1 ? "X" : "O");
     }
 
-    function setSquareValue(index) {
+    function setSquareValue(index: number) {
         const newData = squares.map((val, i) => {
             if (i === index) {
                 return currentPlayer
@@ -58,8 +58,8 @@ export default () => {
         if (!w && !squares.filter((square) => !square).length) {
             setWinner("BOTH");
         }
-    })
-
+    });
+    
 
     return (
         <div className="">

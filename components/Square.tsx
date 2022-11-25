@@ -1,12 +1,12 @@
-type Player = 'X' | 'O' | null
+type Player = 'X' | 'O' | 'BOTH' | null
 
-export default ({
+export default function Square({
     value, onClick, winner
 }:{
     winner: Player
     value: Player
     onClick: () => void;
-}) => {
+}) {
     
     if (!value) {
         return <button className="square" onClick={onClick} disabled={Boolean(winner)} />
