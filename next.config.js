@@ -4,4 +4,11 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+const isProd = process.env.NODE_ENV === 'production'
+
+module.exports = {
+  assetPrefix: isProd ? '/tic-tac-toe/' : '',
+  images: {
+    unoptimized: true,
+  },
+}
